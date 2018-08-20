@@ -1,17 +1,25 @@
 import * as api from '../util/api';
 
 // Action Creators
-export const ADD_PIN = 'ADD_PIN';
+export const RECEIVE_ALL_PINS = 'RECEIVE_ALL_PINS';
 
 // Asynchronous
-export const requestPins = () => dispatch => {
+export const requestAllPins = () => dispatch => {
     return api
-        .fetchPins()
-        .then(res => dispatch(receivePin(res)));
+        .fetchAllPins()
+        // .then(res => console.log(res));
+        .then(res => dispatch(receiveAllPins(res)));
+};
+
+export const addPin = pin => dispatch => {
+    return api.postPin(pin)
+    .then(res => dispatch(receiveAllPins(res)));
+};
+
+export const removePin = pin => dispatch => {
+    return api.deletePin(pin)
+    .then(res => dispatch(receiveAllPins(res)));
 };
 
 // Synchronous 
-export const receivePin = pin => ({
-    type: ADD_PIN,
-    pin
-});
+export const receiveAllPins = pins => ({ type: RECEIVE_ALL_PINS, pins });

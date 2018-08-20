@@ -1,14 +1,20 @@
 import { connect } from 'react-redux';
 import Posts from './posts';
-import { requestAllPosts } from '../../actions/postActions';
+import {requestAllPins} from '../../actions/pinActions';
+import {requestAllPosts} from '../../actions/postActions';
 
-const mapStateToProps = ({posts}) => {
+const mapStateToProps = (state) => {
+    let pinsValues = Object.values(state.posts.pins),
+        resultsValues = Object.values(state.posts.results);
+
     return ({
-        new: posts.new
-    });
+        pins: pinsValues,
+        results: resultsValues
+    });    
 };
 
 const mapDispatchToProps = dispatch => ({
+    requestAllPins: () => dispatch(requestAllPins()),
     requestAllPosts: () => dispatch(requestAllPosts()),
 });
 

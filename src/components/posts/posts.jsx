@@ -1,29 +1,40 @@
 import React, { Component } from 'react';
 import autoBind from 'auto-bind';
-import List from '../list';
+import List from '../list/list';
+import Loading from '../loading';
 
 class Posts extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            posts: this.props.new
+            pins: this.props.pins,
+            results: this.props.results,
+            loading: true
         };
         autoBind(this);
     }
 
     componentWillMount() {
-        this.props.requestAllPosts()
-            .then(() => this.setState({
-                posts: this.props.new
-            }));
+        const {requestAllPins, requestAllPosts} = this.props;
+
+        Promise.all([requestAllPins(), requestAllPosts()])
+            .then(() => this.setState({ loading: false}));
+    }
+
+    componentWillUnmount() {
+        
     }
 
     render() {
-        const { posts } = this.state;
+        const { results, pins } = this.props;
+        
+        if (this.state.loading) return <Loading />;
+        
         return ( 
             <div className='posts container'>
-                <h1>Cat Posts</h1>
-                <List items={posts} />
+                <List items={pins} />
+                <hr/>
+                <List items={results} />
             </div>
         );
     }
