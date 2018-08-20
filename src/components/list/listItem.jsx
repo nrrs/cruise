@@ -29,7 +29,7 @@ class ListItem extends Component {
     }
 
     pinButton() {
-        const pinnedClass = (this.props.item.pinned) ? 'fas fa-heart' : 'far fa-heart';
+        const pinnedClass = (this.props.item.pinned) ? 'pin fas fa-heart' : 'pin far fa-heart';
         const addPinButton = <i className={pinnedClass} onClick={this.pin}></i>;
         const removePinButton = <i className={pinnedClass} onClick={this.unpin}></i>;
 
@@ -38,12 +38,17 @@ class ListItem extends Component {
 
     render() {
         const { item } = this.props;
+        const itemClass = (item.pinned === true) ? 'pin' : '';
         return (
-            <li id={item.id}>
-                {this.pinButton()}
-                Title: <a href={`https://www.reddit.com/${item.permalink}`} target="_blank">{item.title}</a><br/>
-                Author: {item.author}<br/>
-                Score: {item.score}
+            <li id={item.id} className={itemClass}>
+                <div className="fave">
+                    <span>{this.pinButton()}</span>
+                </div>
+                <div className="item-details">
+                    <span className="title"><a href={`https://www.reddit.com/${item.permalink}`} target="_blank" title={item.title}>{item.title}</a></span>
+                    <span className="author">{item.author}</span>
+                    <span className="score">{item.score}</span>
+                </div>
             </li>
         );
     }

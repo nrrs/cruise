@@ -15,7 +15,7 @@ export const fetchAllPins = () => {
 };
 
 export const fetchAllPosts = () => (
-    axios.get('https://www.reddit.com/r/cats/top/.json?count=20&limit=5')
+    axios.get('https://www.reddit.com/r/cats/top/.json?count=20&limit=20')
 );
 
 export const postPin = pin => {

@@ -2,14 +2,14 @@ import React from 'react';
 import ListItemContainer from './listItemContainer';
 
 const List = props => {
-    const { items } = props;
-    
+    const 
+        { name, items } = props,
+        className = `${name} list`;
+
     return(
-        <div>
-            <ul>
-                {items.map(el => <ListItemContainer key={el.id} item={el}/>)}
-            </ul>
-        </div>
+        <ul className={className}>
+            {items.map(el => <ListItemContainer key={el.id} item={el}/>)}
+        </ul>
     );
 };
 

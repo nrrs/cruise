@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Loading = () => (
-    <div>
-        <h2 className = "loading">loading</h2>
+    <div id="loading">
+        <h1>loading</h1>
     </div>
 );
 

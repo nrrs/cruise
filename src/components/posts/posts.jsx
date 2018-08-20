@@ -27,14 +27,13 @@ class Posts extends Component {
 
     render() {
         const { results, pins } = this.props;
-        
+
         if (this.state.loading) return <Loading />;
         
         return ( 
             <div className='posts container'>
-                <List items={pins} />
-                <hr/>
-                <List items={results} />
+                <List name="favorites" items={pins} />
+                <List name="results" items={results} />
             </div>
         );
     }

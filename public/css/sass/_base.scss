@@ -1,0 +1,22 @@
+// font
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,700');
+$u:             17px;
+
+// colors
+$border:        #e6e6e6;
+$hover:         #f8f8f8;
+$pinned:        #f0f0f0;
+
+
+body {
+    font-size: $u;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+strong {
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 2em;
+}

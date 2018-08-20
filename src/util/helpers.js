@@ -24,4 +24,4 @@ export const cleanPosts = action => {
         };
     });
     return sanitizedPosts;
-}
+};
