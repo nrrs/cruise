@@ -168,14 +168,10 @@ div.item-details span.score {
   margin-right: 0px;
 }
 /* line 71, ../sass/_main.scss */
-div.item-details strong {
-  margin-right: 17px;
-}
-/* line 74, ../sass/_main.scss */
 div.item-details:last-child {
   margin-bottom: 0px;
 }
-/* line 77, ../sass/_main.scss */
+/* line 74, ../sass/_main.scss */
 div.item-details a {
   text-decoration: none;
 }
@@ -184,11 +180,11 @@ div.item-details a {
   div.item-details {
     flex-direction: row;
   }
-  /* line 82, ../sass/_main.scss */
+  /* line 79, ../sass/_main.scss */
   div.item-details span {
     margin-bottom: 0px;
   }
-  /* line 85, ../sass/_main.scss */
+  /* line 82, ../sass/_main.scss */
   div.item-details span.title a {
     white-space: nowrap;
     overflow: hidden;
@@ -197,7 +193,7 @@ div.item-details a {
   }
 }
 
-/* line 94, ../sass/_main.scss */
+/* line 91, ../sass/_main.scss */
 i.pin {
   margin-right: 17px;
 }
